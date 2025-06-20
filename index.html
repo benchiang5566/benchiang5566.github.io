@@ -1,149 +1,333 @@
-# 網站配置  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZhgChgLi 的連結集</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-# 主題名稱，對應至目錄：./theme/xxxx  
-theme: default  
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
 
-# HTML 語言設定  
-lang: "en"  
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
 
-# 插件（實作於 ./plugins/PLUGIN_NAME）  
-# 在下方設定中使用 {{ vars.PLUGIN_NAME }}  
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-# 插件的輸出結果可在下方使用，例如：{{vars.MediumFollowersCountPlugin}}  
-plugins:  
-  # 自動獲取 Medium 的追蹤者數量  
-  - MediumFollowersCountPlugin:  
-      username: zhgchgli  
-  # 自動獲取 GitHub 倉庫的星標數量  
-  - GithubRepoStarsCountPlugin:  
-      - ZhgChgLi/ZMarkupParser  
-      - ZhgChgLi/ZReviewTender  
-      - ZhgChgLi/ZMediumToMarkdown  
-      - ZhgChgLi/linkyee  
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #667eea;
+            border: 4px solid #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
 
-# Google Analytics 追蹤 ID  
-google_analytics_id:  
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
 
-# HTML 標題  
-title: "ZhgChgLi 的連結集"  
+        .tagline {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.5;
+            max-width: 500px;
+            margin: 0 auto;
+        }
 
-# 頭像圖片路徑  
-avatar: "./images/profile.jpeg"  
+        .links-section {
+            margin-bottom: 40px;
+        }
 
-# 名稱區塊文字  
-name: "@zhgchgli"  
+        .link-item {
+            display: block;
+            text-decoration: none;
+            background: #fff;
+            margin-bottom: 15px;
+            padding: 18px 25px;
+            border-radius: 15px;
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+            color: #333;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
 
-# 標語區塊文字  
-tagline: >-  
-    一位來自台灣的 iOS、網頁與自動化開發者，熱愛分享、旅行與寫作。  
+        .link-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
 
-# 連結列表  
-# icon：使用 Font Awesome 圖示 (https://fontawesome.com/search?o=r&m=free)  
-# text：顯示在連結上的文字  
-# title：連結的標題  
-# url：連結的網址  
-# alt：替代文字（無障礙使用）  
-# target：`_blank` 在新頁籤打開，`_self` 在同頁面打開  
-links:  
-  - link:  
-      icon: "fa-brands fa-medium"  
-      text: "技術部落格 <span class='link-button-text'>({{vars.MediumFollowersCountPlugin}} Followers)</span>"  
-      url: "https://blog.zhgchg.li"  
-      alt: "ZhgChgLi 的技術部落格"  
-      title: "ZhgChgLi 的技術部落格"  
-      target: "_blank"  
-  - link:  
-      icon: "fa-brands fa-medium"  
-      text: "旅行日誌 <span class='link-button-text'>({{vars.MediumFollowersCountPlugin}} Followers)</span>"  
-      url: "https://medium.com/ztravel"  
-      alt: "ZhgChgLi 的旅行日誌"  
-      title: "ZhgChgLi 的旅行日誌"  
-      target: "_blank"  
-  - link:  
-      icon: "fa-solid fa-rss"  
-      text: "個人網站"  
-      url: "https://zhgchg.li/"  
-      alt: "ZhgChgLi 的網站"  
-      title: "ZhgChgLi 的網站"  
-      target: "_blank"  
-  - link:  
-      icon: "fa-brands fa-swift"  
-      text: "ZMarkupParser <span class='link-button-text'>({{vars.GithubRepoStarsCountPlugin['ZhgChgLi/ZMarkupParser']}} Stars)</span>"  
-      url: "https://github.com/ZhgChgLi/ZMarkupParser"  
-      alt: "ZMarkupParser 是一個純 Swift 庫，用於將 HTML 字串轉換為具自訂樣式的 NSAttributedString。"  
-      title: "ZMarkupParser 是一個純 Swift 庫，用於將 HTML 字串轉換為具自訂樣式的 NSAttributedString。"  
-      target: "_blank"  
-  - link:  
-      icon: "fa-brands fa-app-store-ios"  
-      text: "ZReviewTender <span class='link-button-text'>({{vars.GithubRepoStarsCountPlugin['ZhgChgLi/ZReviewTender']}} Stars)</span>"  
-      url: "https://github.com/ZhgChgLi/ZReviewTender"  
-      alt: "ZReviewTender 是一個從 App Store 和 Google Play Console 獲取應用評論並整合至工作流程的工具。"  
-      title: "ZReviewTender 是一個從 App Store 和 Google Play Console 獲取應用評論並整合至工作流程的工具。"  
-      target: "_blank"  
-  - link:  
-      icon: "fa-brands fa-markdown"  
-      text: "ZMediumToMarkdown <span class='link-button-text'>({{vars.GithubRepoStarsCountPlugin['ZhgChgLi/ZMediumToMarkdown']}} Stars)</span>"  
-      url: "https://github.com/ZhgChgLi/ZMediumToMarkdown"  
-      alt: "ZMediumToMarkdown 是一個強大的工具，可輕鬆下載並將 Medium 文章轉換為 Markdown 格式。"  
-      title: "ZMediumToMarkdown 是一個強大的工具，可輕鬆下載並將 Medium 文章轉換為 Markdown 格式。"  
-      target: "_blank"  
-  - link:  
-      icon: "fa-brands fa-github"  
-      text: "linkyee <span class='link-button-text'>({{vars.GithubRepoStarsCountPlugin['ZhgChgLi/linkyee']}} Stars)</span>"  
-      url: "https://github.com/ZhgChgLi/linkyee"  
-      alt: "linkyee 是一個完全自訂且開源的 LinkTree 替代方案，可直接部署在 GitHub Pages 上。"  
-      title: "linkyee 是一個完全自訂且開源的 LinkTree 替代方案，可直接部署在 GitHub Pages 上。"  
-      target: "_blank"  
+        .link-item i {
+            margin-right: 15px;
+            width: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
 
-# 社交媒體連結列表  
-# icon：使用 Font Awesome 圖示 (https://fontawesome.com/search?o=r&m=free)  
-# title：連結的標題  
-# url：社交媒體連結的網址  
-# alt：替代文字（無障礙使用）  
-# target：`_blank` 在新頁籤打開，`_self` 在同頁面打開  
-socials:  
-  - social:  
-      icon: "fa-brands fa-medium"  
-      url: "https://blog.zhgchg.li"  
-      title: "ZhgChgLi 的 Medium"  
-      alt: "ZhgChgLi 的 Medium"  
-      target: "_blank"  
-  - social:  
-      icon: "fa-brands fa-github"  
-      url: "https://github.com/ZhgChgLi"  
-      title: "ZhgChgLi 的 GitHub"  
-      alt: "ZhgChgLi 的 GitHub"  
-      target: "_blank"  
-  - social:  
-      icon: "fa-brands fa-twitter"  
-      url: "https://twitter.com/zhgchgli"  
-      title: "ZhgChgLi 的 Twitter"  
-      alt: "ZhgChgLi 的 Twitter"  
-      target: "_blank"  
-  - social:  
-      icon: "fa-brands fa-linkedin"  
-      url: "https://www.linkedin.com/in/zhgchgli/"  
-      title: "ZhgChgLi 的 LinkedIn"  
-      alt: "ZhgChgLi 的 LinkedIn"  
-      target: "_blank"  
-  - social:  
-      icon: "fa-brands fa-instagram"  
-      url: "https://www.instagram.com/zhgchgli/"  
-      title: "Instagram"  
-      alt: "ZhgChgLi 的 Instagram"  
-      target: "_blank"  
-  - social:  
-      icon: "fa-solid fa-envelope"  
-      url: "zhgchgli@gmail.com"  
-      title: "Email: zhgchgli@gmail.com"  
-      alt: "zhgchgli@gmail.com"  
-      target: "_blank"  
+        .link-button-text {
+            font-size: 14px;
+            opacity: 0.8;
+            font-weight: normal;
+        }
 
-# 頁尾文字  
-footer: >  
-    歡迎來到我的網站！追蹤我在 Medium 或 GitHub 上的最新動態，或在 Instagram 和 LinkedIn 上保持聯繫。  
+        .socials-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-# 頁尾版權聲明  
-# Linkyee 是一個 100% 免費的開源專案—您可以隨意修改版權聲明。:)  
-copyright: >  
-  © 2024 <a href="https://zhgchg.li" target="_blank">ZhgChgLi</a>。由 <a href="https://github.com/ZhgChgLi/linkyee" target="_blank">linkyee</a> 提供技術支持。  
+        .socials-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #667eea;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            border: 2px solid #f0f0f0;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .footer-section {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .copyright a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            .avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 40px;
+            }
+            
+            .name {
+                font-size: 24px;
+            }
+            
+            .link-item {
+                padding: 15px 20px;
+                font-size: 15px;
+            }
+            
+            .socials-grid {
+                gap: 10px;
+            }
+            
+            .social-link {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <div class="avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="name">@zhgchgli</div>
+            <div class="tagline">
+                一位來自台灣的 iOS、網頁與自動化開發者，熱愛分享、旅行與寫作。
+            </div>
+        </div>
+
+        <!-- Links Section -->
+        <div class="links-section">
+            <a href="https://blog.zhgchg.li" class="link-item" target="_blank" title="ZhgChgLi 的技術部落格">
+                <i class="fa-brands fa-medium"></i>
+                技術部落格 <span class="link-button-text">(Followers)</span>
+            </a>
+
+            <a href="https://medium.com/ztravel" class="link-item" target="_blank" title="ZhgChgLi 的旅行日誌">
+                <i class="fa-brands fa-medium"></i>
+                旅行日誌 <span class="link-button-text">(Followers)</span>
+            </a>
+
+            <a href="https://zhgchg.li/" class="link-item" target="_blank" title="ZhgChgLi 的網站">
+                <i class="fa-solid fa-rss"></i>
+                個人網站
+            </a>
+
+            <a href="https://github.com/ZhgChgLi/ZMarkupParser" class="link-item" target="_blank" title="ZMarkupParser 是一個純 Swift 庫，用於將 HTML 字串轉換為具自訂樣式的 NSAttributedString。">
+                <i class="fa-brands fa-swift"></i>
+                ZMarkupParser <span class="link-button-text">(Stars)</span>
+            </a>
+
+            <a href="https://github.com/ZhgChgLi/ZReviewTender" class="link-item" target="_blank" title="ZReviewTender 是一個從 App Store 和 Google Play Console 獲取應用評論並整合至工作流程的工具。">
+                <i class="fa-brands fa-app-store-ios"></i>
+                ZReviewTender <span class="link-button-text">(Stars)</span>
+            </a>
+
+            <a href="https://github.com/ZhgChgLi/ZMediumToMarkdown" class="link-item" target="_blank" title="ZMediumToMarkdown 是一個強大的工具，可輕鬆下載並將 Medium 文章轉換為 Markdown 格式。">
+                <i class="fa-brands fa-markdown"></i>
+                ZMediumToMarkdown <span class="link-button-text">(Stars)</span>
+            </a>
+
+            <a href="https://github.com/ZhgChgLi/linkyee" class="link-item" target="_blank" title="linkyee 是一個完全自訂且開源的 LinkTree 替代方案，可直接部署在 GitHub Pages 上。">
+                <i class="fa-brands fa-github"></i>
+                linkyee <span class="link-button-text">(Stars)</span>
+            </a>
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="socials-section">
+            <div class="socials-grid">
+                <a href="https://blog.zhgchg.li" class="social-link" target="_blank" title="ZhgChgLi 的 Medium">
+                    <i class="fa-brands fa-medium"></i>
+                </a>
+                
+                <a href="https://github.com/ZhgChgLi" class="social-link" target="_blank" title="ZhgChgLi 的 GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                
+                <a href="https://twitter.com/zhgchgli" class="social-link" target="_blank" title="ZhgChgLi 的 Twitter">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/zhgchgli/" class="social-link" target="_blank" title="ZhgChgLi 的 LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                
+                <a href="https://www.instagram.com/zhgchgli/" class="social-link" target="_blank" title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                
+                <a href="mailto:zhgchgli@gmail.com" class="social-link" target="_blank" title="Email: zhgchgli@gmail.com">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer-section">
+            <div class="footer-text">
+                歡迎來到我的網站！追蹤我在 Medium 或 GitHub 上的最新動態，或在 Instagram 和 LinkedIn 上保持聯繫。
+            </div>
+            <div class="copyright">
+                © 2024 <a href="https://zhgchg.li" target="_blank">ZhgChgLi</a>。由 <a href="https://github.com/ZhgChgLi/linkyee" target="_blank">linkyee</a> 提供技術支持。
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add pulse effect to avatar on load
+            const avatar = document.querySelector('.avatar');
+            avatar.classList.add('pulse');
+            
+            // Remove pulse after animation
+            setTimeout(() => {
+                avatar.classList.remove('pulse');
+            }, 4000);
+
+            // Add click tracking for analytics (if needed)
+            const links = document.querySelectorAll('.link-item, .social-link');
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    // You can add Google Analytics tracking here if needed
+                    console.log('Link clicked:', this.href);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
