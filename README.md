@@ -3,7 +3,8 @@ website test
 
 ![picture01](https://github.com/user-attachments/assets/8544d28d-a896-46c2-be39-6c946928a796)
 
-## LeetCode 3403. Find the Lexicographically Largest String From the Box I
+# 0620
+LeetCode 3403. Find the Lexicographically Largest String From the Box I
 
 class Solution:
     def answerString(self, word: str, numFriends: int) -> str:
