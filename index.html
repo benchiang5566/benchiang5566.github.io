@@ -1,0 +1,149 @@
+# 網站配置  
+
+# 主題名稱，對應至目錄：./theme/xxxx  
+theme: default  
+
+# HTML 語言設定  
+lang: "en"  
+
+# 插件（實作於 ./plugins/PLUGIN_NAME）  
+# 在下方設定中使用 {{ vars.PLUGIN_NAME }}  
+
+# 插件的輸出結果可在下方使用，例如：{{vars.MediumFollowersCountPlugin}}  
+plugins:  
+  # 自動獲取 Medium 的追蹤者數量  
+  - MediumFollowersCountPlugin:  
+      username: zhgchgli  
+  # 自動獲取 GitHub 倉庫的星標數量  
+  - GithubRepoStarsCountPlugin:  
+      - ZhgChgLi/ZMarkupParser  
+      - ZhgChgLi/ZReviewTender  
+      - ZhgChgLi/ZMediumToMarkdown  
+      - ZhgChgLi/linkyee  
+
+# Google Analytics 追蹤 ID  
+google_analytics_id:  
+
+# HTML 標題  
+title: "ZhgChgLi 的連結集"  
+
+# 頭像圖片路徑  
+avatar: "./images/profile.jpeg"  
+
+# 名稱區塊文字  
+name: "@zhgchgli"  
+
+# 標語區塊文字  
+tagline: >-  
+    一位來自台灣的 iOS、網頁與自動化開發者，熱愛分享、旅行與寫作。  
+
+# 連結列表  
+# icon：使用 Font Awesome 圖示 (https://fontawesome.com/search?o=r&m=free)  
+# text：顯示在連結上的文字  
+# title：連結的標題  
+# url：連結的網址  
+# alt：替代文字（無障礙使用）  
+# target：`_blank` 在新頁籤打開，`_self` 在同頁面打開  
+links:  
+  - link:  
+      icon: "fa-brands fa-medium"  
+      text: "技術部落格 <span class='link-button-text'>({{vars.MediumFollowersCountPlugin}} Followers)</span>"  
+      url: "https://blog.zhgchg.li"  
+      alt: "ZhgChgLi 的技術部落格"  
+      title: "ZhgChgLi 的技術部落格"  
+      target: "_blank"  
+  - link:  
+      icon: "fa-brands fa-medium"  
+      text: "旅行日誌 <span class='link-button-text'>({{vars.MediumFollowersCountPlugin}} Followers)</span>"  
+      url: "https://medium.com/ztravel"  
+      alt: "ZhgChgLi 的旅行日誌"  
+      title: "ZhgChgLi 的旅行日誌"  
+      target: "_blank"  
+  - link:  
+      icon: "fa-solid fa-rss"  
+      text: "個人網站"  
+      url: "https://zhgchg.li/"  
+      alt: "ZhgChgLi 的網站"  
+      title: "ZhgChgLi 的網站"  
+      target: "_blank"  
+  - link:  
+      icon: "fa-brands fa-swift"  
+      text: "ZMarkupParser <span class='link-button-text'>({{vars.GithubRepoStarsCountPlugin['ZhgChgLi/ZMarkupParser']}} Stars)</span>"  
+      url: "https://github.com/ZhgChgLi/ZMarkupParser"  
+      alt: "ZMarkupParser 是一個純 Swift 庫，用於將 HTML 字串轉換為具自訂樣式的 NSAttributedString。"  
+      title: "ZMarkupParser 是一個純 Swift 庫，用於將 HTML 字串轉換為具自訂樣式的 NSAttributedString。"  
+      target: "_blank"  
+  - link:  
+      icon: "fa-brands fa-app-store-ios"  
+      text: "ZReviewTender <span class='link-button-text'>({{vars.GithubRepoStarsCountPlugin['ZhgChgLi/ZReviewTender']}} Stars)</span>"  
+      url: "https://github.com/ZhgChgLi/ZReviewTender"  
+      alt: "ZReviewTender 是一個從 App Store 和 Google Play Console 獲取應用評論並整合至工作流程的工具。"  
+      title: "ZReviewTender 是一個從 App Store 和 Google Play Console 獲取應用評論並整合至工作流程的工具。"  
+      target: "_blank"  
+  - link:  
+      icon: "fa-brands fa-markdown"  
+      text: "ZMediumToMarkdown <span class='link-button-text'>({{vars.GithubRepoStarsCountPlugin['ZhgChgLi/ZMediumToMarkdown']}} Stars)</span>"  
+      url: "https://github.com/ZhgChgLi/ZMediumToMarkdown"  
+      alt: "ZMediumToMarkdown 是一個強大的工具，可輕鬆下載並將 Medium 文章轉換為 Markdown 格式。"  
+      title: "ZMediumToMarkdown 是一個強大的工具，可輕鬆下載並將 Medium 文章轉換為 Markdown 格式。"  
+      target: "_blank"  
+  - link:  
+      icon: "fa-brands fa-github"  
+      text: "linkyee <span class='link-button-text'>({{vars.GithubRepoStarsCountPlugin['ZhgChgLi/linkyee']}} Stars)</span>"  
+      url: "https://github.com/ZhgChgLi/linkyee"  
+      alt: "linkyee 是一個完全自訂且開源的 LinkTree 替代方案，可直接部署在 GitHub Pages 上。"  
+      title: "linkyee 是一個完全自訂且開源的 LinkTree 替代方案，可直接部署在 GitHub Pages 上。"  
+      target: "_blank"  
+
+# 社交媒體連結列表  
+# icon：使用 Font Awesome 圖示 (https://fontawesome.com/search?o=r&m=free)  
+# title：連結的標題  
+# url：社交媒體連結的網址  
+# alt：替代文字（無障礙使用）  
+# target：`_blank` 在新頁籤打開，`_self` 在同頁面打開  
+socials:  
+  - social:  
+      icon: "fa-brands fa-medium"  
+      url: "https://blog.zhgchg.li"  
+      title: "ZhgChgLi 的 Medium"  
+      alt: "ZhgChgLi 的 Medium"  
+      target: "_blank"  
+  - social:  
+      icon: "fa-brands fa-github"  
+      url: "https://github.com/ZhgChgLi"  
+      title: "ZhgChgLi 的 GitHub"  
+      alt: "ZhgChgLi 的 GitHub"  
+      target: "_blank"  
+  - social:  
+      icon: "fa-brands fa-twitter"  
+      url: "https://twitter.com/zhgchgli"  
+      title: "ZhgChgLi 的 Twitter"  
+      alt: "ZhgChgLi 的 Twitter"  
+      target: "_blank"  
+  - social:  
+      icon: "fa-brands fa-linkedin"  
+      url: "https://www.linkedin.com/in/zhgchgli/"  
+      title: "ZhgChgLi 的 LinkedIn"  
+      alt: "ZhgChgLi 的 LinkedIn"  
+      target: "_blank"  
+  - social:  
+      icon: "fa-brands fa-instagram"  
+      url: "https://www.instagram.com/zhgchgli/"  
+      title: "Instagram"  
+      alt: "ZhgChgLi 的 Instagram"  
+      target: "_blank"  
+  - social:  
+      icon: "fa-solid fa-envelope"  
+      url: "zhgchgli@gmail.com"  
+      title: "Email: zhgchgli@gmail.com"  
+      alt: "zhgchgli@gmail.com"  
+      target: "_blank"  
+
+# 頁尾文字  
+footer: >  
+    歡迎來到我的網站！追蹤我在 Medium 或 GitHub 上的最新動態，或在 Instagram 和 LinkedIn 上保持聯繫。  
+
+# 頁尾版權聲明  
+# Linkyee 是一個 100% 免費的開源專案—您可以隨意修改版權聲明。:)  
+copyright: >  
+  © 2024 <a href="https://zhgchg.li" target="_blank">ZhgChgLi</a>。由 <a href="https://github.com/ZhgChgLi/linkyee" target="_blank">linkyee</a> 提供技術支持。  
